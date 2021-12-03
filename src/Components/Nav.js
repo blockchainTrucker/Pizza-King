@@ -1,16 +1,19 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import cart from "../cart.png";
 
-class Nav extends React.Component {
-	render() {
-		return (
-			<nav>
-				<div class="navOptions">
-					<Link to="/">Home</Link>
-				</div>
-			</nav>
-		);
-	}
+function Nav(props) {
+	return (
+		<nav>
+			<div className="navOptions">
+				<Link to="/">Home</Link>
+				<Link to="/menu">Menu</Link>
+				<Link to="/my-history">My History</Link>
+				<Link to="/my-cart">
+					<img className="cart" src={cart} alt="Shopping Cart"></img>
+				</Link>
+			</div>
+		</nav>
+	);
 }
 
 export default Nav;
