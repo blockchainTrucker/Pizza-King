@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import cart from "../cart.png";
+import cart from "../static/images/cart.png";
 
 function Nav(props) {
 	return (
