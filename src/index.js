@@ -3,17 +3,17 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import Nav from "./Components/Nav";
-import { BrowserRouter } from "react-router-dom";
+import Footer from "./Components/Footer";
 
-import Main from "./Components/Main";
+import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<BrowserRouter>
+		<Router>
 			<Nav />
 			<App />
-			<Main />
-		</BrowserRouter>
+			<Footer />
+		</Router>
 	</React.StrictMode>,
 	document.getElementById("root")
 );

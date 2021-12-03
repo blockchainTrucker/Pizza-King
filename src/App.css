@@ -1,23 +1,41 @@
-.App {
-	text-align: center;
-}
-
 nav {
+	margin-top: 10px;
 	margin-left: auto;
 	margin-right: auto;
 	height: fit-content;
 	width: 100%;
-	margin-bottom: 20px;
 	display: -webkit-inline-box;
+}
+
+button {
+	border: 2px solid transparent;
+	border-radius: 5px;
+	outline: none;
+
+	color: rgba(255, 255, 255);
+	background-color: rgb(81, 131, 96);
+	box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.8);
+	text-transform: uppercase;
+}
+
+button:focus,
+button:hover {
+	color: rgb(151, 144, 144);
+	box-shadow: 0px 0px 15px rgb(0, 0, 0, 0.8);
+	cursor: pointer;
+}
+
+button:active {
+	box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.8);
 }
 
 .navOptions {
 	margin: auto;
-	font-size: 16pt;
+	font-size: 1.2em;
 }
 
 .navOptions a {
-	margin: 20px;
+	margin: 17px;
 	text-decoration: none;
 	color: rgba(255, 255, 255);
 }
@@ -26,11 +44,11 @@ nav {
 .navOptions a:hover {
 	outline: none;
 	transition: all 0.2s ease-in;
-	color: rgb(148, 31, 60);
+	text-decoration: underline;
 }
 
 .cart {
-	height: 50px;
+	height: 25px;
 }
 
 div.container {
@@ -42,13 +60,16 @@ div.container {
 	text-align: center;
 }
 
+.logo-pizza {
+	margin-top: 25px;
+}
+
 .logo {
-	width: 100%;
+	height: 200px;
 }
 
 .pizza {
-	height: 300px;
-	pointer-events: none;
+	height: 200px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -69,19 +90,15 @@ div.container {
 .phoneNumber {
 	color: rgba(255, 255, 255);
 	width: 100%;
-	font-size: 4em;
-	margin: 50px;
+	font-size: 2.5em;
+	margin: 25px;
 }
 
 .map-hours {
 	margin-left: auto;
 	margin-right: auto;
 	width: 75%;
-	height: 300px;
-}
-
-.map {
-	margin: auto;
+	height: 525px;
 }
 
 .hours {
@@ -91,17 +108,116 @@ div.container {
 .hours h3 {
 	margin: 0;
 	color: rgba(255, 255, 255);
-	font-size: 2.5em;
+	font-size: 1.75em;
 }
 
 .hours p {
 	margin: auto;
 	color: rgba(255, 255, 255);
-	font-size: 1.5em;
+	font-size: 1.15em;
 }
 
 .location h3 {
 	margin-bottom: 5px;
 	color: rgba(255, 255, 255);
-	font-size: 2.5em;
+	font-size: 1.75em;
+}
+
+.menu {
+	margin-bottom: 225px;
+}
+
+.menu h2 {
+	color: rgba(255, 255, 255);
+	margin-bottom: 0;
+	font-size: 1.5em;
+}
+
+.menu-item {
+	width: 100%;
+	color: rgba(255, 255, 255);
+}
+
+.menu-item table {
+	width: 100%;
+}
+
+.item {
+	width: 150px;
+}
+
+.price {
+	width: 75px;
+}
+
+.add-button {
+	width: 75px;
+}
+
+.add-button button {
+	font-size: 0.6em;
+	padding: 0px 10px;
+}
+
+form {
+	width: 75%;
+	height: fit-content;
+	text-align: center;
+	margin-bottom: 350px;
+	border: 2px;
+	padding: 10px;
+	border-radius: 3.5px;
+}
+
+form h3 {
+	font-size: 1.75em;
+	color: rgba(255, 255, 255);
+	margin-bottom: 20px;
+}
+
+form input {
+	padding-left: 50px;
+	padding-right: 50px;
+	font-size: 1em;
+	text-align: center;
+	height: 25px;
+	margin-bottom: 10px;
+	width: 50%;
+	border: 2px;
+	border-radius: 2px;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0 0 10px rgb(0, 0, 0, 0.7);
+}
+
+form button {
+	text-transform: uppercase;
+	font-size: 0.75em;
+	padding: 5px 25px;
+}
+
+form input:focus {
+	outline: none;
+	box-shadow: 0 0 15px rgb(0, 0, 0, 0.8);
+}
+
+form a {
+	color: rgba(255, 255, 255);
+	font-size: 0.8em;
+}
+
+form a:hover {
+	color: rgb(151, 144, 144);
+}
+
+footer {
+	font-size: 0.8em;
+	bottom: 0px;
+	width: 100%;
+	text-align: center;
+	display: inline-block;
+	margin-bottom: 5px;
+	margin-top: 50px;
+	color: rgba(255, 255, 255);
+	position: absolute;
 }
