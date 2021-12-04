@@ -5,15 +5,18 @@ import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import Menu from "./Components/Menu";
 import Main from "./Components/Main";
+import Error from "./Components/Error";
+
 function App() {
 	return (
-		<div className="container">
+		<div>
 			<Routes>
 				<Route path="/" exact element={<Main />} />
 				<Route path="/menu" element={<Menu />} />
 				<Route path="/registration" element={<Registration />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/menu" element={<Menu />} />
+				<Route path="*" element={<Error />} />
 			</Routes>
 		</div>
 	);

@@ -159,6 +159,11 @@ div.container {
 	padding: 0px 10px;
 }
 
+.checkout button {
+	margin-top: 20px;
+	padding: 5px 25px;
+}
+
 form {
 	width: 75%;
 	height: fit-content;
@@ -208,6 +213,17 @@ form a {
 
 form a:hover {
 	color: rgb(151, 144, 144);
+}
+
+.error h3 {
+	font-size: 1.75em;
+	color: rgba(255, 255, 255);
+	margin-bottom: 20px;
+}
+
+.error img {
+	height: 350px;
+	margin-bottom: 200px;
 }
 
 footer {

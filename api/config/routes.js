@@ -1,7 +1,8 @@
-// const router = require('../routes/');
+// const router = require("../routes/");
+const cartPOST = require("../utils/cartPOST");
 
 module.exports = (app) => {
-	// app.use('/api/user', router.user);
+	app.use("/api/cart/add", cartPOST);
 
 	// app.use('/api/origami', router.origami);
 
