@@ -50,7 +50,13 @@ export default function MyAccount(props) {
 							})}
 							<br />
 							<tr className="item">
-								<td>Total</td>{" "}
+								<td>Tax</td>
+								<td className="price">
+									${(total * 0.053).toFixed(2) || 0.0}
+								</td>
+							</tr>
+							<tr className="item">
+								<td>Total</td>
 								<td className="price">
 									${total.toFixed(2) || 0.0}
 								</td>
