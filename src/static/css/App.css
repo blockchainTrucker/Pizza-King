@@ -181,6 +181,10 @@ div.container {
 	padding: 5px 25px;
 }
 
+.shopping-cart-solo {
+	margin-bottom: 325px;
+}
+
 form {
 	width: 75%;
 	height: fit-content;

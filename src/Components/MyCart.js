@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
-export default function MyAccount(props) {
+export default function MyCart(props) {
 	const [cookies, setCookies] = useCookies();
 	let cart = cookies.cart;
 	let total = 0;
@@ -12,12 +12,11 @@ export default function MyAccount(props) {
 	} else {
 		cart = [];
 	}
-
 	return (
 		<div className="container">
-			<div className="my-account">
+			<div className="shopping-cart-solo">
 				<div className="shopping-cart">
-					<h3>Current Cart</h3>
+					<h3>Cart</h3>
 					<table>
 						<tbody>
 							{cart.map(function (item) {
@@ -64,7 +63,6 @@ export default function MyAccount(props) {
 						</Link>
 					</div>
 				</div>
-				<h3>Past Orders</h3>
 			</div>
 		</div>
 	);
