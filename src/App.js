@@ -9,7 +9,7 @@ import Error from "./Components/Error";
 import MyAccount from "./Components/MyAccount";
 import MyCart from "./Components/MyCart";
 
-function App() {
+function App(props) {
 	return (
 		<div>
 			<Routes>

@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useCookies } from "react-cookie";
 
 export default function Registration(props) {
+	const [, setCookies] = useCookies();
 	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [firstName, setFirstName] = useState("");
@@ -70,8 +72,11 @@ export default function Registration(props) {
 		});
 
 		registerUser(firstName, lastName, email, password).then((res) => {
-			console.log(res);
-			navigate("/login");
+			setCookies("user", {
+				firstName: firstName,
+				lastName: lastName,
+			});
+			navigate("/my-account");
 		});
 	}
 	return (

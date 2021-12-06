@@ -18,6 +18,7 @@ export default function MyAccount(props) {
 			<div className="my-account">
 				<div className="shopping-cart">
 					<h3>Current Cart</h3>
+					<h4 className="order-name">{`Order for ${cookies.user.firstName} ${cookies.user.lastName}`}</h4>
 					<table>
 						<tbody>
 							{cart.map(function (item) {
@@ -43,17 +44,14 @@ export default function MyAccount(props) {
 									</tr>
 								);
 							})}
-							<br />
 							<tr className="item">
-								<td>Tax</td>
-								<td className="price">
-									${(total * 0.053).toFixed(2) || 0.0}
+								<td className="item-total">
+									<h4>Total with tax:</h4>
 								</td>
-							</tr>
-							<tr className="item">
-								<td>Total</td>
-								<td className="price">
-									${(total * 1.053).toFixed(2) || 0.0}
+								<td className="price-total">
+									<h4>
+										${(total * 1.053).toFixed(2) || 0.0}
+									</h4>
 								</td>
 							</tr>
 						</tbody>
