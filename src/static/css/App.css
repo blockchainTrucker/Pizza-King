@@ -236,6 +236,11 @@ form a:hover {
 	color: rgb(151, 144, 144);
 }
 
+.error-message {
+	color: rgb(218, 19, 19);
+	text-transform: uppercase;
+}
+
 .error h3 {
 	font-size: 1.75em;
 	color: rgba(255, 255, 255);

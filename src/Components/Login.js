@@ -10,7 +10,7 @@ function Login(props) {
 					name="email"
 					type="text"
 					placeholder="Email Address"
-					// value="{{username}}"
+					value={props.email}
 				/>
 				<input
 					type="password"
