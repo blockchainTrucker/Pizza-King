@@ -183,16 +183,43 @@ div.container {
 }
 
 .remove-button {
+	font-weight: bold;
 	background-color: rgb(177, 46, 46);
 	font-size: 0.6em;
 }
 
 .checkout button {
+	font-weight: bold;
+	padding: 5px 25px;
+}
+
+.my-account {
+	margin-bottom: 175px;
+}
+
+.logout {
+	margin: auto;
+}
+
+.logout button {
+	background-color: rgb(177, 46, 46);
+	font-weight: bold;
+	padding: 5px 25px;
+}
+
+.review button {
+	font-weight: bold;
 	margin-top: 20px;
 	padding: 5px 25px;
 }
 
+.shopping-cart {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .shopping-cart h3 {
+	width: 100%;
 	margin-bottom: 0px;
 }
 .shopping-cart p {

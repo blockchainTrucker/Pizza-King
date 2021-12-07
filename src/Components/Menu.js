@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import { useEffect } from "react";
 
 export default function Menu(props) {
+	useEffect(() => {
+		document.title = "Pizza King - Menu";
+	}, []);
 	let cart = [];
 	const [cookies, setCookies] = useCookies(["cart"]);
 	function mozzAdd() {
@@ -89,7 +93,7 @@ export default function Menu(props) {
 			cart = [];
 		}
 		let alfredo = {
-			name: "Alfredo",
+			name: "Fettuccine Alfredo",
 			price: 12.99,
 		};
 		cart.push(alfredo);
@@ -222,7 +226,7 @@ export default function Menu(props) {
 						</tbody>
 					</table>
 				</div>
-				<div className="checkout">
+				<div className="review">
 					<Link to="/my-cart">
 						<button>Review Order</button>
 					</Link>

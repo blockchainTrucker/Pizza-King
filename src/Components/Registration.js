@@ -3,8 +3,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
+import { useEffect } from "react";
 
 export default function Registration(props) {
+	useEffect(() => {
+		document.title = "Pizza King - Registration";
+	}, []);
 	const [, setCookies] = useCookies();
 	const navigate = useNavigate();
 	const [email, setEmail] = useState("");

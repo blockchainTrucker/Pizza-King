@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 function Login(props) {
+	useEffect(() => {
+		document.title = "Pizza King - Login";
+	}, []);
 	return (
 		<div className="container">
 			<form className="login" method="POST" action="/login">
 				<h3>Sign in</h3>
-				{/* <p class="{{loginError}}">{{ loginMessage }}</p> */}
 				<input
 					name="email"
 					type="text"
