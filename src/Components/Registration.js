@@ -63,7 +63,7 @@ export default function Registration(props) {
 				setError("Email Already Exists, Please Login");
 				return;
 			} else {
-				navigate("/my-account");
+				navigate("/login");
 			}
 		});
 	}

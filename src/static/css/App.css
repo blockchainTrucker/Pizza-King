@@ -263,6 +263,10 @@ form input {
 	box-shadow: 0 0 10px rgb(0, 0, 0, 0.7);
 }
 
+.order-placed {
+	margin-bottom: 225px;
+}
+
 form button {
 	text-transform: uppercase;
 	font-size: 0.75em;

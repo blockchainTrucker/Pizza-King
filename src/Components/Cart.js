@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart(props) {
+	const [error, setError] = useState();
 	const [cookies, setCookies] = useCookies();
+	const navigate = useNavigate();
 	let cart = cookies.cart;
 	let total = 0;
 	if (cart !== undefined) {
@@ -13,9 +16,41 @@ export default function Cart(props) {
 		cart = [];
 	}
 
+	function submitHandler(event) {
+		event.preventDefault();
+		if (cart.length > 0) {
+			const url = "http://localhost:9999/api/new-order";
+			let data = JSON.stringify({
+				items: cart,
+				total: total,
+				userID: "testing",
+			});
+			let resources = {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: data,
+			};
+			fetch(url, resources).then((res) => {
+				console.log(res);
+				if (res.body === "Error") {
+					setError("Something went wrong, please try again");
+				} else {
+					setCookies("cart", []);
+					setCookies("cartCount", 0);
+					navigate("/order-placed");
+				}
+			});
+		} else {
+			setError("Cart is empty");
+		}
+	}
+
 	return (
 		<div className="shopping-cart">
 			<h3>My Cart</h3>
+			<span className="error-message">{error}</span>
 			<h4 className="order-name">{`Order for ${cookies.user.firstName} ${cookies.user.lastName}`}</h4>
 			<table>
 				<tbody>
@@ -65,9 +100,9 @@ export default function Cart(props) {
 				</tbody>
 			</table>
 			<div className="checkout">
-				<Link to="/my-cart">
-					<button>Checkout</button>
-				</Link>
+				<form onSubmit={submitHandler}>
+					<button type="submit">Checkout</button>
+				</form>
 			</div>
 		</div>
 	);

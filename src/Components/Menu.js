@@ -7,7 +7,7 @@ export default function Menu(props) {
 		document.title = "Pizza King - Menu";
 	}, []);
 	let cart = [];
-	const [cookies, setCookies] = useCookies(["cart"]);
+	const [cookies, setCookies] = useCookies();
 	function mozzAdd() {
 		cart = cookies.cart;
 		if (cart === undefined) {

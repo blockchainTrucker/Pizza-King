@@ -8,6 +8,7 @@ import Main from "./Components/Main";
 import Error from "./Components/Error";
 import MyAccount from "./Components/MyAccount";
 import MyCart from "./Components/MyCart";
+import OrderPlaced from "./Components/OrderPlaced";
 
 function App(props) {
 	return (
@@ -20,6 +21,7 @@ function App(props) {
 				<Route path="/menu" element={<Menu />} />
 				<Route path="/my-account" element={<MyAccount />} />
 				<Route path="/my-cart" element={<MyCart />} />
+				<Route path="/order-placed" element={<OrderPlaced />} />
 				<Route path="*" element={<Error />} />
 			</Routes>
 		</div>
