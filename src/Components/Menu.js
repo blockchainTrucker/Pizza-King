@@ -8,124 +8,6 @@ export default function Menu(props) {
 	}, []);
 	let cart = [];
 	const [cookies, setCookies] = useCookies();
-	function mozzAdd() {
-		cart = cookies.cart;
-		if (cart === undefined) {
-			cart = [];
-		}
-		let mozz = {
-			name: "Mozzarella Sticks",
-			price: 7.99,
-		};
-		cart.push(mozz);
-		setCookies("cart", cart);
-		setCookies("cartCount", cart.length);
-	}
-	function wingsAdd() {
-		cart = cookies.cart;
-		if (cart === undefined) {
-			cart = [];
-		}
-		let wings = {
-			name: "Wings",
-			price: 9.99,
-		};
-		cart.push(wings);
-
-		setCookies("cart", cart);
-		setCookies("cartCount", cart.length);
-	}
-	function calamariAdd() {
-		cart = cookies.cart;
-		if (cart === undefined) {
-			cart = [];
-		}
-		let calamari = {
-			name: "Calamari",
-			price: 9.99,
-		};
-		cart.push(calamari);
-		setCookies("cart", cart);
-		setCookies("cartCount", cart.length);
-	}
-	function cheeseAdd() {
-		cart = cookies.cart;
-		if (cart === undefined) {
-			cart = [];
-		}
-		let cheese = {
-			name: "Cheese Pizza",
-			price: 9.99,
-		};
-		cart.push(cheese);
-		setCookies("cart", cart);
-		setCookies("cartCount", cart.length);
-	}
-	function pepperoniAdd() {
-		cart = cookies.cart;
-		if (cart === undefined) {
-			cart = [];
-		}
-		let pepperoni = {
-			name: "Pepperoni Pizza",
-			price: 11.99,
-		};
-		cart.push(pepperoni);
-		setCookies("cart", cart);
-		setCookies("cartCount", cart.length);
-	}
-	function supremeAdd() {
-		cart = cookies.cart;
-		if (cart === undefined) {
-			cart = [];
-		}
-		let supreme = {
-			name: "Supreme Pizza",
-			price: 14.99,
-		};
-		cart.push(supreme);
-		setCookies("cart", cart);
-		setCookies("cartCount", cart.length);
-	}
-	function alfredoAdd() {
-		cart = cookies.cart;
-		if (cart === undefined) {
-			cart = [];
-		}
-		let alfredo = {
-			name: "Fettuccine Alfredo",
-			price: 12.99,
-		};
-		cart.push(alfredo);
-		setCookies("cart", cart);
-		setCookies("cartCount", cart.length);
-	}
-	function lasagnaAdd() {
-		cart = cookies.cart;
-		if (cart === undefined) {
-			cart = [];
-		}
-		let lasagna = {
-			name: "Lasagne",
-			price: 11.99,
-		};
-		cart.push(lasagna);
-		setCookies("cart", cart);
-		setCookies("cartCount", cart.length);
-	}
-	function shellsAdd() {
-		cart = cookies.cart;
-		if (cart === undefined) {
-			cart = [];
-		}
-		let shells = {
-			name: "Stuffed Shells",
-			price: 14.99,
-		};
-		cart.push(shells);
-		setCookies("cart", cart);
-		setCookies("cartCount", cart.length);
-	}
 
 	return (
 		<div className="container">
@@ -138,7 +20,26 @@ export default function Menu(props) {
 								<td className="item">Mozzarella Sticks</td>
 								<td className="price">$7.99</td>
 								<td className="add-button">
-									<button onClick={mozzAdd}>Add</button>
+									<button
+										onClick={function () {
+											cart = cookies.cart;
+											if (cart === undefined) {
+												cart = [];
+											}
+											let mozz = {
+												name: "Mozzarella Sticks",
+												price: 7.99,
+											};
+											cart.push(mozz);
+											setCookies("cart", cart);
+											setCookies(
+												"cartCount",
+												cart.length
+											);
+										}}
+									>
+										Add
+									</button>
 								</td>
 							</tr>
 						</tbody>
@@ -147,7 +48,27 @@ export default function Menu(props) {
 								<td className="item">Wings</td>
 								<td className="price">$9.99</td>
 								<td className="add-button">
-									<button onClick={wingsAdd}>Add</button>
+									<button
+										onClick={function () {
+											cart = cookies.cart;
+											if (cart === undefined) {
+												cart = [];
+											}
+											let wings = {
+												name: "Wings",
+												price: 9.99,
+											};
+											cart.push(wings);
+
+											setCookies("cart", cart);
+											setCookies(
+												"cartCount",
+												cart.length
+											);
+										}}
+									>
+										Add
+									</button>
 								</td>
 							</tr>
 						</tbody>
@@ -156,7 +77,26 @@ export default function Menu(props) {
 								<td className="item">Fried Calamari</td>
 								<td className="price">$9.99</td>
 								<td className="add-button">
-									<button onClick={calamariAdd}>Add</button>
+									<button
+										onClick={function calamariAdd() {
+											cart = cookies.cart;
+											if (cart === undefined) {
+												cart = [];
+											}
+											let calamari = {
+												name: "Calamari",
+												price: 9.99,
+											};
+											cart.push(calamari);
+											setCookies("cart", cart);
+											setCookies(
+												"cartCount",
+												cart.length
+											);
+										}}
+									>
+										Add
+									</button>
 								</td>
 							</tr>
 						</tbody>
@@ -170,7 +110,26 @@ export default function Menu(props) {
 								<td className="item">Cheese Pizza</td>
 								<td className="price">$9.99</td>
 								<td className="add-button">
-									<button onClick={cheeseAdd}>Add</button>
+									<button
+										onClick={function () {
+											cart = cookies.cart;
+											if (cart === undefined) {
+												cart = [];
+											}
+											let cheese = {
+												name: "Cheese Pizza",
+												price: 9.99,
+											};
+											cart.push(cheese);
+											setCookies("cart", cart);
+											setCookies(
+												"cartCount",
+												cart.length
+											);
+										}}
+									>
+										Add
+									</button>
 								</td>
 							</tr>
 						</tbody>
@@ -179,7 +138,26 @@ export default function Menu(props) {
 								<td className="item">Pepperoni Pizza</td>
 								<td className="price">$11.99</td>
 								<td className="add-button">
-									<button onClick={pepperoniAdd}>Add</button>
+									<button
+										onClick={function () {
+											cart = cookies.cart;
+											if (cart === undefined) {
+												cart = [];
+											}
+											let pepperoni = {
+												name: "Pepperoni Pizza",
+												price: 11.99,
+											};
+											cart.push(pepperoni);
+											setCookies("cart", cart);
+											setCookies(
+												"cartCount",
+												cart.length
+											);
+										}}
+									>
+										Add
+									</button>
 								</td>
 							</tr>
 						</tbody>
@@ -188,7 +166,26 @@ export default function Menu(props) {
 								<td className="item">Supreme Pizza</td>
 								<td className="price">$14.99</td>
 								<td className="add-button">
-									<button onClick={supremeAdd}>Add</button>
+									<button
+										onClick={function () {
+											cart = cookies.cart;
+											if (cart === undefined) {
+												cart = [];
+											}
+											let supreme = {
+												name: "Supreme Pizza",
+												price: 14.99,
+											};
+											cart.push(supreme);
+											setCookies("cart", cart);
+											setCookies(
+												"cartCount",
+												cart.length
+											);
+										}}
+									>
+										Add
+									</button>
 								</td>
 							</tr>
 						</tbody>
@@ -202,7 +199,26 @@ export default function Menu(props) {
 								<td className="item">Fettuccine Alfredo</td>
 								<td className="price">$12.99</td>
 								<td className="add-button">
-									<button onClick={alfredoAdd}>Add</button>
+									<button
+										onClick={function () {
+											cart = cookies.cart;
+											if (cart === undefined) {
+												cart = [];
+											}
+											let alfredo = {
+												name: "Fettuccine Alfredo",
+												price: 12.99,
+											};
+											cart.push(alfredo);
+											setCookies("cart", cart);
+											setCookies(
+												"cartCount",
+												cart.length
+											);
+										}}
+									>
+										Add
+									</button>
 								</td>
 							</tr>
 						</tbody>
@@ -211,7 +227,26 @@ export default function Menu(props) {
 								<td className="item">Lasagna</td>
 								<td className="price">$11.99</td>
 								<td className="add-button">
-									<button onClick={lasagnaAdd}>Add</button>
+									<button
+										onClick={function () {
+											cart = cookies.cart;
+											if (cart === undefined) {
+												cart = [];
+											}
+											let lasagna = {
+												name: "Lasagne",
+												price: 11.99,
+											};
+											cart.push(lasagna);
+											setCookies("cart", cart);
+											setCookies(
+												"cartCount",
+												cart.length
+											);
+										}}
+									>
+										Add
+									</button>
 								</td>
 							</tr>
 						</tbody>
@@ -220,7 +255,26 @@ export default function Menu(props) {
 								<td className="item">Stuffed Shells</td>
 								<td className="price">$14.99</td>
 								<td className="add-button">
-									<button onClick={shellsAdd}>Add</button>
+									<button
+										onClick={function () {
+											cart = cookies.cart;
+											if (cart === undefined) {
+												cart = [];
+											}
+											let shells = {
+												name: "Stuffed Shells",
+												price: 14.99,
+											};
+											cart.push(shells);
+											setCookies("cart", cart);
+											setCookies(
+												"cartCount",
+												cart.length
+											);
+										}}
+									>
+										Add
+									</button>
 								</td>
 							</tr>
 						</tbody>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useCookies } from "react-cookie";
 
 function Login(props) {
 	useEffect(() => {
@@ -9,6 +10,7 @@ function Login(props) {
 	}, []);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [cookies, setCookies] = useCookies();
 	const navigate = useNavigate();
 
 	function loginUser(email, password) {
@@ -29,7 +31,7 @@ function Login(props) {
 	function submitHandler(event) {
 		event.preventDefault();
 		loginUser(email, password).then((res) => {
-			console.log(res);
+			setCookies("x-auth-token", res);
 		});
 	}
 

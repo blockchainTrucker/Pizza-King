@@ -19,10 +19,11 @@ export default function Cart(props) {
 	function submitHandler(event) {
 		event.preventDefault();
 		if (cart.length > 0) {
+			let totWtax = (total * 1.053).toFixed(2);
 			const url = "http://localhost:9999/api/new-order";
 			let data = JSON.stringify({
 				items: cart,
-				total: total,
+				total: totWtax,
 				userID: "testing",
 			});
 			let resources = {

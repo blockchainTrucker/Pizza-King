@@ -21,9 +21,7 @@ module.exports = function login(req, res, next) {
 						config.jwt.secret,
 						config.jwt.options
 					);
-					res.cookie(config.authCookieName, token).send({
-						userInfo,
-					});
+					res.send(JSON.stringify(token));
 				} else {
 					res.status(406);
 				}

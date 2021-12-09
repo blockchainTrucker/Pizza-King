@@ -189,6 +189,8 @@ div.container {
 }
 
 .checkout button {
+	margin-right: auto;
+	margin-left: auto;
 	font-weight: bold;
 	padding: 5px 25px;
 }
@@ -236,10 +238,11 @@ form {
 	width: 75%;
 	height: fit-content;
 	text-align: center;
-	margin-bottom: 350px;
 	border: 2px;
 	padding: 10px;
 	border-radius: 3.5px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 form h3 {
