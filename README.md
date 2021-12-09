@@ -1,4 +1,6 @@
-Welcome to the Pizza King Application
+Welcome to the Pizza King Application.
+
+This is a React app with a context api.
 
 To begin using the application, navigate to the "pizza-king" folder.
 
