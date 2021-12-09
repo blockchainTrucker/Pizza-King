@@ -40,14 +40,17 @@ module.exports = function registerUser(req, res, next) {
 		emailGood === false ||
 		passGood === false
 	) {
-		return console.error("Invalid Entry");
+		return;
 	} else {
 		User.find({ email: email }).then((users) => {
 			if (users.length > 0) {
 				emailGood = false;
-				return console.error("Email is already in use");
+				console.log("Email is already in use");
+				let error = JSON.stringify("Email is already in use");
+				res.send(error);
+				return;
 			}
-			if (emailGood) {
+			if (emailGood && firstGood && lastGood && passGood) {
 				bcrypt.genSalt(saltConfig, (err, salt) => {
 					bcrypt.hash(pass, salt, (err, hash) => {
 						User.create({

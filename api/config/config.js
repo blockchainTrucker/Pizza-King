@@ -4,10 +4,17 @@ const config = {
 	development: {
 		port: process.env.PORT || 9999,
 		dbURL: "mongodb://localhost:27017/pizza-king",
-		authCookieName: "x-auth-token",
 	},
 	production: {},
+	authCookieName: "x-auth-token",
 	saltRounds: 72,
+	jwt: {
+		secret: "pizzakingsecret",
+		options: {
+			httpOnly: true,
+			expiresIn: "7d",
+		},
+	},
 };
 
 module.exports = config[env];

@@ -19,14 +19,20 @@ export default function Cart(props) {
 			<h4 className="order-name">{`Order for ${cookies.user.firstName} ${cookies.user.lastName}`}</h4>
 			<table>
 				<tbody>
-					{cart.map(function (item) {
+					{cart.map(function (item, index) {
 						return (
-							<tr>
-								<td key={item.name} className="item">
+							<tr key={`${index}`}>
+								<td
+									key={`${item.name}${index}`}
+									className="item"
+								>
 									{item.name}
 								</td>
-								<td key={item.price} className="price">
-									{item.price}
+								<td
+									key={`${item.price}${index}`}
+									className="price"
+								>
+									{`$${item.price}`}
 								</td>
 								<td>
 									<button

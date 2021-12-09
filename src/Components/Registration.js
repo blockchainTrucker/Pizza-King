@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useCookies } from "react-cookie";
+// import { useCookies } from "react-cookie";
 import { useEffect } from "react";
 
 export default function Registration(props) {
 	useEffect(() => {
 		document.title = "Pizza King - Registration";
 	}, []);
-	const [, setCookies] = useCookies();
+	// const [, setCookies] = useCookies();
 	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [firstName, setFirstName] = useState("");
@@ -18,19 +18,8 @@ export default function Registration(props) {
 	const [repPassword, setRepPassword] = useState("");
 	const [error, setError] = useState();
 
-	function isNewUser(email) {
-		const userURL = "http://localhost:9999/api/users/";
-		return fetch(userURL)
-			.then((res) => res.json())
-			.then((users) => {
-				let hasUser = users.find((user) => {
-					return user.email === email;
-				});
-				return hasUser;
-			});
-	}
 	function registerUser(firstName, lastName, email, password) {
-		const url = "http://localhost:9999/api/users";
+		const url = "http://localhost:9999/api/users/register";
 		let data = JSON.stringify({
 			firstName: firstName,
 			lastName: lastName,
@@ -68,19 +57,14 @@ export default function Registration(props) {
 			setError("Passwords Do Not Match");
 			return;
 		}
-		isNewUser(email).then((res) => {
-			if (res !== undefined) {
-				setError("Email Already Exists, Please Login");
-				return;
-			}
-		});
 
 		registerUser(firstName, lastName, email, password).then((res) => {
-			setCookies("user", {
-				firstName: firstName,
-				lastName: lastName,
-			});
-			navigate("/my-account");
+			if (res === "Email is already in use") {
+				setError("Email Already Exists, Please Login");
+				return;
+			} else {
+				navigate("/my-account");
+			}
 		});
 	}
 	return (
