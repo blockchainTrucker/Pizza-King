@@ -274,7 +274,7 @@ form input {
 }
 
 .order-placed {
-	margin-bottom: 225px;
+	margin-bottom: 375px;
 }
 
 form button {
@@ -290,7 +290,7 @@ form input:focus {
 
 form a {
 	color: rgba(255, 255, 255);
-	font-size: 0.8em;
+	font-size: 1em;
 }
 
 form a:hover {

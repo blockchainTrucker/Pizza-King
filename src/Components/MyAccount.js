@@ -47,6 +47,32 @@ export default function MyAccount(props) {
 				<Cart />
 				<div>
 					<h3>Past Orders</h3>
+					<table>
+						<tbody>
+							{function () {
+								for (let order of pastOrders) {
+									order.map(function (item, index) {
+										return (
+											<tr key={`${index}`}>
+												<td
+													key={`${item.name}${index}`}
+													className="item"
+												>
+													{item.name}
+												</td>
+												<td
+													key={`${item.price}${index}`}
+													className="price"
+												>
+													{`$${item.price}`}
+												</td>
+											</tr>
+										);
+									});
+								}
+							}}
+						</tbody>
+					</table>
 				</div>
 				<div className="logout">
 					<button
