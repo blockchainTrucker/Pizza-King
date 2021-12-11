@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 
 export default function MyAccount(props) {
 	const navigate = useNavigate();
-	const [cookies, setCookies, removeCookies] = useCookies();
+	const [cookies, , removeCookies] = useCookies();
 	let token = cookies.user;
 	props = jwt.decode(token);
 

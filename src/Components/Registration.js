@@ -19,8 +19,6 @@ export default function Registration(props) {
 	const [error, setError] = useState();
 
 	function registerUser(firstName, lastName, email, password) {
-		console.log("test");
-
 		const url = "http://localhost:9999/api/users/register";
 		let data = JSON.stringify({
 			firstName: firstName,
@@ -61,17 +59,18 @@ export default function Registration(props) {
 		}
 
 		registerUser(firstName, lastName, email, password).then((res) => {
+			console.log(res);
 			if (res === "Email is already in use") {
 				setError("Email Already Exists, Please Login");
 				return;
-			} else {
+			} else if (res === "success") {
 				navigate("/login");
 			}
 		});
 	}
 	return (
 		<div className="container">
-			<form onSubmit={submitHandler}>
+			<form className="regForm" onSubmit={submitHandler}>
 				<h3>Create an Account</h3>
 				<p className="error-message">{error}</p>
 				<input
@@ -97,7 +96,7 @@ export default function Registration(props) {
 					type="text"
 					placeholder="Email Address"
 					onChange={(e) => {
-						setEmail(e.target.value.toLowerCase());
+						setEmail(e.target.value.toLowerCase().trim());
 					}}
 					value={email}
 				/>

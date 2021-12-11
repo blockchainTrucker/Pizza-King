@@ -233,6 +233,13 @@ div.container {
 .shopping-cart-solo {
 	margin-bottom: 350px;
 }
+.regForm {
+	margin-bottom: 325px;
+}
+
+.loginForm {
+	margin-bottom: 450px;
+}
 
 form {
 	width: 75%;

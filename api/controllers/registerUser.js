@@ -3,7 +3,7 @@ let bcrypt = require("bcrypt");
 const User = require("../models/User");
 
 module.exports = function registerUser(req, res, next) {
-	let email = req.body.email.toLowerCase();
+	let email = req.body.email.toLowerCase().trim();
 	let firstName = req.body.firstName;
 	let lastName = req.body.lastName;
 	let pass = req.body.password;
@@ -51,16 +51,10 @@ module.exports = function registerUser(req, res, next) {
 				return;
 			}
 			if (emailGood && firstGood && lastGood && passGood) {
-				console.log("test");
-
 				bcrypt.genSalt(saltConfig, (err, salt) => {
 					bcrypt.hash(pass, salt, (err, hash) => {
-						User.create({
-							firstName: firstName,
-							lastName: lastName,
-							email: email,
-							password: hash,
-						})
+						let password = hash;
+						User.create({ firstName, lastName, email, password })
 							.then((createdUser) => res.send("success"))
 							.catch((err) => {
 								console.log(err);

@@ -15,7 +15,7 @@ import { useCookies } from "react-cookie";
 const jwt = require("jsonwebtoken");
 
 function App(props) {
-	const [cookies, setCookies] = useCookies();
+	const [cookies] = useCookies();
 	let token = cookies.user;
 	let loggedIn = false;
 	let user;

@@ -40,7 +40,6 @@ export default function Cart(props) {
 				body: data,
 			};
 			fetch(url, resources).then((res) => {
-				console.log(res);
 				if (res.body === "Error") {
 					setError("Something went wrong, please try again");
 				} else {

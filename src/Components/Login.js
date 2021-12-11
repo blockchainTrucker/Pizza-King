@@ -45,7 +45,7 @@ function Login(props) {
 
 	return (
 		<div className="container">
-			<form className="login" onSubmit={submitHandler}>
+			<form className="loginForm" onSubmit={submitHandler}>
 				<h3>Sign in</h3>
 				<p className="error-message">{error}</p>
 				<input
