@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import Cart from "./Cart";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-
 const jwt = require("jsonwebtoken");
 
 export default function MyAccount(props) {
@@ -30,6 +29,7 @@ export default function MyAccount(props) {
 		};
 		return fetch(url, resources).then((res) => res.json());
 	}
+
 	function pastOrdersHandler(event) {
 		pastOrdersGetter().then((res) => {
 			res.map((item) => {
@@ -37,6 +37,7 @@ export default function MyAccount(props) {
 			});
 		});
 	}
+
 	pastOrdersHandler();
 	console.log(pastOrders);
 

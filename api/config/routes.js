@@ -12,7 +12,8 @@ module.exports = (app) => {
 
 	app.post("/api/past-orders", pastOrders);
 
-	app.use("*", (req, res, next) =>
-		res.send("<h1> Something went wrong. Try again. :thumbsup: </h1>")
-	);
+	app.use("*", (req, res, next) => {
+		res.status(404);
+		res.send("Route not found");
+	});
 };

@@ -23,12 +23,13 @@ module.exports = function login(req, res, next) {
 					);
 					res.send(JSON.stringify(token));
 				} else {
-					res.status(406);
+					res.status(401);
 					res.send(JSON.stringify("Invalid email or password"));
 				}
 			});
 		});
 	} else {
-		res.status(406);
+		res.status(401);
+		res.send(JSON.stringify("Invalid email or password"));
 	}
 };
