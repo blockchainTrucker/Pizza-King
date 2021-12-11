@@ -24,6 +24,7 @@ module.exports = function login(req, res, next) {
 					res.send(JSON.stringify(token));
 				} else {
 					res.status(406);
+					res.send(JSON.stringify("Invalid email or password"));
 				}
 			});
 		});

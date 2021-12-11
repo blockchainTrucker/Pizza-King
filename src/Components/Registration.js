@@ -19,6 +19,8 @@ export default function Registration(props) {
 	const [error, setError] = useState();
 
 	function registerUser(firstName, lastName, email, password) {
+		console.log("test");
+
 		const url = "http://localhost:9999/api/users/register";
 		let data = JSON.stringify({
 			firstName: firstName,

@@ -9,8 +9,23 @@ import Error from "./Components/Error";
 import MyAccount from "./Components/MyAccount";
 import MyCart from "./Components/MyCart";
 import OrderPlaced from "./Components/OrderPlaced";
+import PrivateRoute from "./Components/PrivateRoute";
+
+import { useCookies } from "react-cookie";
+const jwt = require("jsonwebtoken");
 
 function App(props) {
+	const [cookies, setCookies] = useCookies();
+	let token = cookies.user;
+	let loggedIn = false;
+	let user;
+	if (token !== undefined) {
+		user = jwt.decode(token);
+		if (user !== undefined) {
+			loggedIn = true;
+		}
+	}
+
 	return (
 		<div>
 			<Routes>
@@ -19,8 +34,30 @@ function App(props) {
 				<Route path="/registration" element={<Registration />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/menu" element={<Menu />} />
-				<Route path="/my-account" element={<MyAccount />} />
-				<Route path="/my-cart" element={<MyCart />} />
+				<Route
+					path="my-account"
+					element={
+						<PrivateRoute
+							isAuth={loggedIn}
+							path="/my-account"
+							redirectTo="/login"
+						>
+							<MyAccount />
+						</PrivateRoute>
+					}
+				/>
+				<Route
+					path="my-cart"
+					element={
+						<PrivateRoute
+							isAuth={loggedIn}
+							path="/my-cart"
+							redirectTo="/login"
+						>
+							<MyCart />
+						</PrivateRoute>
+					}
+				/>
 				<Route path="/order-placed" element={<OrderPlaced />} />
 				<Route path="*" element={<Error />} />
 			</Routes>

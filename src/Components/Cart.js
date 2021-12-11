@@ -1,6 +1,7 @@
 import { useCookies } from "react-cookie";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+const jwt = require("jsonwebtoken");
 
 export default function Cart(props) {
 	const [error, setError] = useState();
@@ -8,6 +9,11 @@ export default function Cart(props) {
 	const navigate = useNavigate();
 	let cart = cookies.cart;
 	let total = 0;
+	function tokenCheck() {
+		let token = cookies.user;
+		props = jwt.decode(token);
+	}
+	tokenCheck();
 	if (cart !== undefined) {
 		for (let i = 0; i < cart.length; i++) {
 			total = total + cart[i].price;
@@ -24,7 +30,7 @@ export default function Cart(props) {
 			let data = JSON.stringify({
 				items: cart,
 				total: totWtax,
-				userID: "testing",
+				userID: props.id,
 			});
 			let resources = {
 				method: "POST",
@@ -52,7 +58,7 @@ export default function Cart(props) {
 		<div className="shopping-cart">
 			<h3>My Cart</h3>
 			<span className="error-message">{error}</span>
-			<h4 className="order-name">{`Order for ${cookies.user.firstName} ${cookies.user.lastName}`}</h4>
+			<h4 className="order-name">{`Order for ${props.firstName} ${props.lastName}`}</h4>
 			<table>
 				<tbody>
 					{cart.map(function (item, index) {
@@ -78,10 +84,6 @@ export default function Cart(props) {
 											let index = cart.indexOf(item);
 											cart.splice(index, 1);
 											setCookies("cart", cart);
-											setCookies(
-												"cartCount",
-												cart.length
-											);
 										}}
 									>
 										-

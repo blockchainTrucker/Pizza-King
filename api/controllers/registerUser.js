@@ -51,6 +51,8 @@ module.exports = function registerUser(req, res, next) {
 				return;
 			}
 			if (emailGood && firstGood && lastGood && passGood) {
+				console.log("test");
+
 				bcrypt.genSalt(saltConfig, (err, salt) => {
 					bcrypt.hash(pass, salt, (err, hash) => {
 						User.create({
@@ -59,7 +61,7 @@ module.exports = function registerUser(req, res, next) {
 							email: email,
 							password: hash,
 						})
-							.then((createdUser) => res.send(createdUser))
+							.then((createdUser) => res.send("success"))
 							.catch((err) => {
 								console.log(err);
 							});

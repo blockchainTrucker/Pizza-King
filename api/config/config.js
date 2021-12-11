@@ -6,7 +6,7 @@ const config = {
 		dbURL: "mongodb://localhost:27017/pizza-king",
 
 		production: {},
-		authCookieName: "x-auth-token",
+		authCookieName: "user",
 		saltRounds: 72,
 		jwt: {
 			secret: "pizzakingsecret",

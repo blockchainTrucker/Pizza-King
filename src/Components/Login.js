@@ -10,7 +10,8 @@ function Login(props) {
 	}, []);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [cookies, setCookies] = useCookies();
+	const [, setCookies] = useCookies();
+	const [error, setError] = useState();
 	const navigate = useNavigate();
 
 	function loginUser(email, password) {
@@ -31,14 +32,22 @@ function Login(props) {
 	function submitHandler(event) {
 		event.preventDefault();
 		loginUser(email, password).then((res) => {
-			setCookies("x-auth-token", res);
+			if (res === "Invalid email or password") {
+				setError(res);
+			} else {
+				setCookies("user", res);
+				navigate("/my-account");
+			}
 		});
+
+		// navigate("/my-account");
 	}
 
 	return (
 		<div className="container">
 			<form className="login" onSubmit={submitHandler}>
 				<h3>Sign in</h3>
+				<p className="error-message">{error}</p>
 				<input
 					name="email"
 					type="text"
