@@ -59,7 +59,6 @@ export default function Registration(props) {
 		}
 
 		registerUser(firstName, lastName, email, password).then((res) => {
-			console.log(res);
 			if (res === "Email is already in use") {
 				setError("Email Already Exists, Please Login");
 				return;

@@ -6,7 +6,7 @@ module.exports = function registerUser(req, res, next) {
 	let email = req.body.email.toLowerCase().trim();
 	let firstName = req.body.firstName;
 	let lastName = req.body.lastName;
-	let pass = req.body.password;
+	let password = req.body.password;
 	let emailRegex = new RegExp(/[a-z0-9]+[a-z0-9]*@[a-z0-9]*.\w\w\w/i);
 	let nameRegex = new RegExp(/[a-zA-Z]{2,24}/);
 	let passRegex = new RegExp(/[\S+]{6,24}/);
@@ -29,10 +29,15 @@ module.exports = function registerUser(req, res, next) {
 	} else {
 		emailGood = true;
 	}
-	if (!passRegex.test(pass)) {
+	if (!passRegex.test(password)) {
 		passGood = false;
 	} else {
 		passGood = true;
+		bcrypt.genSalt(saltConfig, (err, salt) => {
+			bcrypt.hash(password, salt, (err, hash) => {
+				password === hash;
+			});
+		});
 	}
 	if (
 		firstGood === false ||
@@ -51,16 +56,12 @@ module.exports = function registerUser(req, res, next) {
 				return;
 			}
 			if (emailGood && firstGood && lastGood && passGood) {
-				bcrypt.genSalt(saltConfig, (err, salt) => {
-					bcrypt.hash(pass, salt, (err, hash) => {
-						let password = hash;
-						User.create({ firstName, lastName, email, password })
-							.then((createdUser) => res.send("success"))
-							.catch((err) => {
-								console.log(err);
-							});
+				new User({ firstName, lastName, email, password })
+					.save()
+					.then((createdUser) => res.send(JSON.stringify("success")))
+					.catch((err) => {
+						console.log(err);
 					});
-				});
 			}
 		});
 	}
