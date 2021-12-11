@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 export default function MyAccount(props) {
 	const navigate = useNavigate();
 	const [cookies, , removeCookies] = useCookies();
-	let pastOrders;
+	let pastOrders = [];
 	let token = cookies.user;
 	props = jwt.decode(token);
 
@@ -32,17 +32,21 @@ export default function MyAccount(props) {
 	}
 	function pastOrdersHandler(event) {
 		pastOrdersGetter().then((res) => {
-			pastOrders = res;
+			res.map((item) => {
+				return pastOrders.push(item.items);
+			});
 		});
 	}
-
 	pastOrdersHandler();
+	console.log(pastOrders);
 
 	return (
 		<div className="container">
 			<div className="my-account">
 				<Cart />
-				<h3>Past Orders</h3>
+				<div>
+					<h3>Past Orders</h3>
+				</div>
 				<div className="logout">
 					<button
 						onClick={function () {
