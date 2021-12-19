@@ -59,7 +59,6 @@ export default function Menu(props) {
 												price: 9.99,
 											};
 											cart.push(wings);
-
 											setCookies("cart", cart);
 											setCookies(
 												"cartCount",

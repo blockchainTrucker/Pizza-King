@@ -58,49 +58,55 @@ export default function Cart(props) {
 			<h3>My Cart</h3>
 			<span className="error-message">{error}</span>
 			<h4 className="order-name">{`Order for ${props.firstName} ${props.lastName}`}</h4>
-			<table>
-				<tbody>
-					{cart.map(function (item, index) {
-						return (
-							<tr key={`${index}`}>
-								<td
-									key={`${item.name}${index}`}
-									className="item"
-								>
-									{item.name}
-								</td>
-								<td
-									key={`${item.price}${index}`}
-									className="price"
-								>
-									{`$${item.price}`}
-								</td>
-								<td>
-									<button
-										key={item.button}
-										className="remove-button"
-										onClick={function () {
-											let index = cart.indexOf(item);
-											cart.splice(index, 1);
-											setCookies("cart", cart);
-										}}
+			<div className="container">
+				<table>
+					<tbody>
+						{cart.map(function (item, index) {
+							return (
+								<tr key={`${index}`}>
+									<td
+										key={`${item.name}${index}`}
+										className="item"
 									>
-										-
-									</button>
-								</td>
-							</tr>
-						);
-					})}
-					<tr className="item">
-						<td className="item-total">
-							<h4>Total with tax:</h4>
-						</td>
-						<td className="price-total">
-							<h4>${(total * 1.053).toFixed(2) || 0.0}</h4>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+										{item.name}
+									</td>
+									<td
+										key={`${item.price}${index}`}
+										className="price"
+									>
+										{`$${item.price}`}
+									</td>
+									<td>
+										<button
+											key={item.button}
+											className="remove-button"
+											onClick={function () {
+												let index = cart.indexOf(item);
+												cart.splice(index, 1);
+												setCookies("cart", cart);
+												setCookies(
+													"cartCount",
+													cart.length
+												);
+											}}
+										>
+											-
+										</button>
+									</td>
+								</tr>
+							);
+						})}
+						<tr className="item">
+							<td className="item-total">
+								<h4>Total with tax:</h4>
+							</td>
+							<td className="item-total">
+								<h4>${(total * 1.053).toFixed(2) || 0.0}</h4>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 			<div className="checkout">
 				<form onSubmit={submitHandler}>
 					<button type="submit">Checkout</button>

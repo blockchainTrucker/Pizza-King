@@ -10,22 +10,25 @@ import MyAccount from "./Components/MyAccount";
 import MyCart from "./Components/MyCart";
 import OrderPlaced from "./Components/OrderPlaced";
 import PrivateRoute from "./Components/PrivateRoute";
-
 import { useCookies } from "react-cookie";
 const jwt = require("jsonwebtoken");
 
 function App(props) {
-	const [cookies] = useCookies();
+	const [cookies, setCookies] = useCookies();
 	let token = cookies.user;
 	let loggedIn = false;
-	let user;
+	let user = {
+		id: "",
+	};
 	if (token !== undefined) {
 		user = jwt.decode(token);
 		if (user !== undefined) {
 			loggedIn = true;
 		}
 	}
-
+	if (cookies.cart === undefined) {
+		setCookies("cart", []);
+	}
 	return (
 		<div>
 			<Routes>
