@@ -39,7 +39,7 @@ export default function PastOrders(props) {
 
 	return (
 		<div>
-			<h3>Past Orders</h3>
+			<h3>Recent Orders</h3>
 			<div className="container">
 				{pastOrders.map((order, index) => {
 					return (
