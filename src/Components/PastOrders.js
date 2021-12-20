@@ -1,6 +1,5 @@
 import { useCookies } from "react-cookie";
 import { useEffect } from "react";
-
 const jwt = require("jsonwebtoken");
 
 export default function PastOrders(props) {
