@@ -260,8 +260,19 @@ div.container {
 .pastOrders table {
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 20px;
 	margin-top: 20px;
+}
+
+.pastOrders h4 {
+	margin-top: 10px;
+}
+
+.pastOrders p {
+	color: rgba(255, 255, 255);
+}
+
+.pastOrders button {
+	margin-bottom: 20px;
 }
 
 form {

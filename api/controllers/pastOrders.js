@@ -13,6 +13,7 @@ module.exports = function pastOrders(req, res, next) {
 					id: orders[0].id,
 					items: orders[0].items,
 					total: orders[0].total,
+					dateTime: orders[0].dateTime,
 				};
 				const token = jwt.sign(
 					po1,
@@ -26,6 +27,7 @@ module.exports = function pastOrders(req, res, next) {
 					id: orders[1].id,
 					items: orders[1].items,
 					total: orders[1].total,
+					dateTime: orders[1].dateTime,
 				};
 				const token = jwt.sign(
 					po2,
@@ -39,6 +41,7 @@ module.exports = function pastOrders(req, res, next) {
 					id: orders[2].id,
 					items: orders[2].items,
 					total: orders[2].total,
+					dateTime: orders[2].dateTime,
 				};
 				const token = jwt.sign(
 					po3,

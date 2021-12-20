@@ -4,7 +4,8 @@ module.exports = function newOrder(req, res, next) {
 	let items = req.body.items;
 	let total = req.body.total;
 	let userID = req.body.userID;
-	Order.create({ items, total, userID })
+	let dateTime = new Date();
+	Order.create({ items, total, userID, dateTime })
 		.then((createdOrder) => {
 			res.status(201);
 			res.send(createdOrder);

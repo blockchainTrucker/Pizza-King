@@ -29,7 +29,7 @@ export default function PastOrders(props) {
 			setCookies("pastOrders", res);
 			return;
 		});
-	}, []);
+	}, [user.id, setCookies]);
 
 	if (cookies.pastOrders !== undefined) {
 		for (let i = 0; i < cookies.pastOrders.length; i++) {
@@ -41,30 +41,25 @@ export default function PastOrders(props) {
 		<div>
 			<h3>Past Orders</h3>
 			<div className="container">
-				{pastOrders.map((order) => {
+				{pastOrders.map((order, index) => {
 					return (
 						<div className="pastOrders">
+							<p>{order.dateTime}</p>
 							<table>
 								<tbody>
 									{order.items.map((item, index) => {
 										return (
 											<tr key={`${index}`}>
-												<td
-													key={`${item.name}${index}`}
-													className="item"
-												>
+												<td className="item">
 													{item.name}
 												</td>
-												<td
-													key={`${item.price}${index}`}
-													className="price"
-												>
+												<td className="price">
 													{`$${item.price}`}
 												</td>
 											</tr>
 										);
 									})}
-									<tr>
+									<tr key={`${index}`}>
 										<td className="item-total">
 											<h4>Total w/ tax:</h4>
 										</td>
@@ -74,6 +69,18 @@ export default function PastOrders(props) {
 									</tr>
 								</tbody>
 							</table>
+							<button
+								key={`${order}${index}button`}
+								onClick={function () {
+									setCookies("cart", order.items);
+									setCookies(
+										"cartCount",
+										cookies.cart.length
+									);
+								}}
+							>
+								Order Again
+							</button>
 						</div>
 					);
 				})}
