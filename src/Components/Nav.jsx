@@ -13,7 +13,7 @@ function Nav(props) {
 				<Link to="/my-account">My Account</Link>
 				<Link to="/my-cart" className="cartCount">
 					<img className="cart" src={cart} alt="Shopping Cart"></img>
-					{cookies.cartCount || "0"}
+					{cookies.cart.length || "0"}
 				</Link>
 			</div>
 		</nav>

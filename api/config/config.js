@@ -7,7 +7,7 @@ const config = {
 
 		production: {},
 		authCookieName: "user",
-		saltRounds: 72,
+		saltRounds: 11,
 		jwt: {
 			secret: "pizzakingsecret",
 			options: {

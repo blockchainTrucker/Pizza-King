@@ -1,10 +1,11 @@
 import { useCookies } from "react-cookie";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const jwt = require("jsonwebtoken");
 
 export default function Cart(props) {
 	const [error, setError] = useState();
+	const [cartEmpty, setCartEmpty] = useState();
 	const [cookies, setCookies] = useCookies();
 	const navigate = useNavigate();
 	let cart = cookies.cart;
@@ -21,6 +22,11 @@ export default function Cart(props) {
 	} else {
 		cart = [];
 	}
+	useEffect(() => {
+		if (cart.length === 0) {
+			setCartEmpty("Cart is empty...");
+		}
+	}, [cart.length]);
 
 	function submitHandler(event) {
 		event.preventDefault();
@@ -44,7 +50,6 @@ export default function Cart(props) {
 					setError("Something went wrong, please try again");
 				} else {
 					setCookies("cart", []);
-					setCookies("cartCount", 0);
 					navigate("/order-placed");
 				}
 			});
@@ -61,6 +66,7 @@ export default function Cart(props) {
 			<div className="container">
 				<table>
 					<tbody>
+						<p>{cartEmpty}</p>
 						{cart.map(function (item, index) {
 							return (
 								<tr key={`${index}`}>
@@ -84,10 +90,6 @@ export default function Cart(props) {
 												let index = cart.indexOf(item);
 												cart.splice(index, 1);
 												setCookies("cart", cart);
-												setCookies(
-													"cartCount",
-													cart.length
-												);
 											}}
 										>
 											-

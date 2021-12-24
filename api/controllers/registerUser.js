@@ -40,6 +40,8 @@ module.exports = function registerUser(req, res, next) {
 		emailGood === false ||
 		passGood === false
 	) {
+		res.status(401);
+		res.send(JSON.stringify("validation failed"));
 		return;
 	} else {
 		User.find({ email: email }).then((users) => {
@@ -51,12 +53,19 @@ module.exports = function registerUser(req, res, next) {
 				return;
 			}
 			if (emailGood && firstGood && lastGood && passGood) {
-				new User({ firstName, lastName, email, password })
-					.save()
-					.then((createdUser) => res.send(JSON.stringify("success")))
-					.catch((err) => {
-						console.log(err);
-					});
+				bcrypt.hash(password, saltConfig, function (err, hash) {
+					new User({ firstName, lastName, email, password: hash })
+						.save()
+						.then((createdUser) =>
+							res.send(JSON.stringify("success"))
+						)
+						.catch((err) => {
+							console.log(err);
+						});
+				});
+			} else {
+				res.status(401);
+				res.send(JSON.stringify("validation failed"));
 			}
 		});
 	}
