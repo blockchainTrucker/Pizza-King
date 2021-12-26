@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import cart from "../static/images/cart.png";
 import { useCookies } from "react-cookie";
 
-function Nav(props) {
+export default function Nav(props) {
 	const [cookies] = useCookies();
 
 	return (
@@ -19,5 +19,3 @@ function Nav(props) {
 		</nav>
 	);
 }
-
-export default Nav;

@@ -1,7 +1,7 @@
 import pizzaBox from "../static/images/pizza-box.png";
 import { useEffect } from "react";
 
-function Error(props) {
+export default function Error(props) {
 	useEffect(() => {
 		document.title = "Pizza King - Error";
 	}, []);
@@ -14,5 +14,3 @@ function Error(props) {
 		</div>
 	);
 }
-
-export default Error;

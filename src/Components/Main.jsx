@@ -2,7 +2,7 @@ import pizza from "../static/images/pizza.png";
 import logo from "../static/images/pizza-king-logo.png";
 import { useEffect } from "react";
 
-function Main(props) {
+export default function Main(props) {
 	useEffect(() => {
 		document.title = "Pizza King - Home";
 	}, []);
@@ -32,5 +32,3 @@ function Main(props) {
 		</div>
 	);
 }
-
-export default Main;

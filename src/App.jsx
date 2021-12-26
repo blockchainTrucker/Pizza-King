@@ -13,7 +13,7 @@ import PrivateRoute from "./Components/PrivateRoute";
 import { useCookies } from "react-cookie";
 const jwt = require("jsonwebtoken");
 
-function App(props) {
+export default function App(props) {
 	const [cookies, setCookies] = useCookies();
 	let token = cookies.user;
 	let loggedIn = false;
@@ -67,5 +67,3 @@ function App(props) {
 		</div>
 	);
 }
-
-export default App;

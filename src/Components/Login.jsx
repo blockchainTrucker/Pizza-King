@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
 
-function Login(props) {
+export default function Login(props) {
 	useEffect(() => {
 		document.title = "Pizza King - Login";
 	}, []);
@@ -39,8 +39,6 @@ function Login(props) {
 				navigate("/my-account");
 			}
 		});
-
-		// navigate("/my-account");
 	}
 
 	return (
@@ -73,5 +71,3 @@ function Login(props) {
 		</div>
 	);
 }
-
-export default Login;
