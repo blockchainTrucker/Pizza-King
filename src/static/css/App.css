@@ -107,7 +107,7 @@ div.container {
 	margin-left: auto;
 	margin-right: auto;
 	width: 75%;
-	height: 525px;
+	height: auto;
 }
 
 .hours {
@@ -132,8 +132,18 @@ div.container {
 	font-size: 1.75em;
 }
 
+.location p {
+	margin: auto;
+	color: rgba(255, 255, 255);
+	font-size: 1.15em;
+}
+
+.address {
+	margin-bottom: 20px;
+}
+
 .menu {
-	margin-bottom: 260px;
+	margin-bottom: 175px;
 }
 
 .menu h2 {
@@ -196,10 +206,6 @@ div.container {
 	padding: 5px 25px;
 }
 
-.my-account {
-	margin-bottom: 350px;
-}
-
 .logout {
 	margin: auto;
 }
@@ -233,7 +239,7 @@ div.container {
 }
 
 .shopping-cart-solo {
-	margin-bottom: 450px;
+	margin-bottom: 325px;
 }
 .regForm {
 	margin-bottom: 325px;
@@ -345,7 +351,7 @@ form a:hover {
 
 .error img {
 	height: 350px;
-	margin-bottom: 200px;
+	margin-bottom: 175px;
 }
 
 footer {
@@ -357,5 +363,5 @@ footer {
 	margin-bottom: 5px;
 	margin-top: 50px;
 	color: rgba(255, 255, 255);
-	position: absolute;
+	position: static;
 }

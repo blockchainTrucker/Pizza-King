@@ -42,23 +42,29 @@ export default function PastOrders(props) {
 			<div className="container">
 				{pastOrders.map((order, index) => {
 					return (
-						<div className="pastOrders">
-							<p>{order.dateTime}</p>
+						<div key={index} className="pastOrders">
+							<p key={`${index}date`}>{order.dateTime}</p>
 							<table>
 								<tbody>
-									{order.items.map((item, index) => {
+									{order.items.map((item, index2) => {
 										return (
-											<tr key={`${index}`}>
-												<td className="item">
+											<tr key={`${index2}${item}`}>
+												<td
+													className="item"
+													key={`${index2}${item.name}`}
+												>
 													{item.name}
 												</td>
-												<td className="price">
+												<td
+													className="price"
+													key={`${index2}${item.price}`}
+												>
 													{`$${item.price}`}
 												</td>
 											</tr>
 										);
 									})}
-									<tr key={`${index}`}>
+									<tr key={`${index}total`}>
 										<td className="item-total">
 											<h4>Total w/ tax:</h4>
 										</td>
@@ -69,8 +75,8 @@ export default function PastOrders(props) {
 								</tbody>
 							</table>
 							<button
-								key={`${order}${index}button`}
-								onClick={function () {
+								key={`${index}button`}
+								onClick={() => {
 									setCookies("cart", order.items);
 									setCookies(
 										"cartCount",

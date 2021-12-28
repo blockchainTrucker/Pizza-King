@@ -3,11 +3,11 @@ import { useCookies } from "react-cookie";
 import { useEffect } from "react";
 
 export default function Menu(props) {
+	const [cookies, setCookies] = useCookies();
 	useEffect(() => {
 		document.title = "Pizza King - Menu";
 	}, []);
 	let cart = [];
-	const [cookies, setCookies] = useCookies();
 
 	return (
 		<div className="container">
@@ -21,7 +21,7 @@ export default function Menu(props) {
 								<td className="price">$7.99</td>
 								<td className="add-button">
 									<button
-										onClick={function () {
+										onClick={() => {
 											cart = cookies.cart;
 											if (cart === undefined) {
 												cart = [];
@@ -32,10 +32,6 @@ export default function Menu(props) {
 											};
 											cart.push(mozz);
 											setCookies("cart", cart);
-											setCookies(
-												"cartCount",
-												cart.length
-											);
 										}}
 									>
 										Add
@@ -49,7 +45,7 @@ export default function Menu(props) {
 								<td className="price">$9.99</td>
 								<td className="add-button">
 									<button
-										onClick={function () {
+										onClick={() => {
 											cart = cookies.cart;
 											if (cart === undefined) {
 												cart = [];
@@ -60,10 +56,6 @@ export default function Menu(props) {
 											};
 											cart.push(wings);
 											setCookies("cart", cart);
-											setCookies(
-												"cartCount",
-												cart.length
-											);
 										}}
 									>
 										Add
@@ -77,7 +69,7 @@ export default function Menu(props) {
 								<td className="price">$9.99</td>
 								<td className="add-button">
 									<button
-										onClick={function calamariAdd() {
+										onClick={() => {
 											cart = cookies.cart;
 											if (cart === undefined) {
 												cart = [];
@@ -88,10 +80,6 @@ export default function Menu(props) {
 											};
 											cart.push(calamari);
 											setCookies("cart", cart);
-											setCookies(
-												"cartCount",
-												cart.length
-											);
 										}}
 									>
 										Add
@@ -110,7 +98,7 @@ export default function Menu(props) {
 								<td className="price">$9.99</td>
 								<td className="add-button">
 									<button
-										onClick={function () {
+										onClick={() => {
 											cart = cookies.cart;
 											if (cart === undefined) {
 												cart = [];
@@ -121,10 +109,6 @@ export default function Menu(props) {
 											};
 											cart.push(cheese);
 											setCookies("cart", cart);
-											setCookies(
-												"cartCount",
-												cart.length
-											);
 										}}
 									>
 										Add
@@ -138,7 +122,7 @@ export default function Menu(props) {
 								<td className="price">$11.99</td>
 								<td className="add-button">
 									<button
-										onClick={function () {
+										onClick={() => {
 											cart = cookies.cart;
 											if (cart === undefined) {
 												cart = [];
@@ -149,10 +133,6 @@ export default function Menu(props) {
 											};
 											cart.push(pepperoni);
 											setCookies("cart", cart);
-											setCookies(
-												"cartCount",
-												cart.length
-											);
 										}}
 									>
 										Add
@@ -166,7 +146,7 @@ export default function Menu(props) {
 								<td className="price">$14.99</td>
 								<td className="add-button">
 									<button
-										onClick={function () {
+										onClick={() => {
 											cart = cookies.cart;
 											if (cart === undefined) {
 												cart = [];
@@ -177,10 +157,6 @@ export default function Menu(props) {
 											};
 											cart.push(supreme);
 											setCookies("cart", cart);
-											setCookies(
-												"cartCount",
-												cart.length
-											);
 										}}
 									>
 										Add
@@ -199,7 +175,7 @@ export default function Menu(props) {
 								<td className="price">$12.99</td>
 								<td className="add-button">
 									<button
-										onClick={function () {
+										onClick={() => {
 											cart = cookies.cart;
 											if (cart === undefined) {
 												cart = [];
@@ -210,10 +186,6 @@ export default function Menu(props) {
 											};
 											cart.push(alfredo);
 											setCookies("cart", cart);
-											setCookies(
-												"cartCount",
-												cart.length
-											);
 										}}
 									>
 										Add
@@ -227,7 +199,7 @@ export default function Menu(props) {
 								<td className="price">$11.99</td>
 								<td className="add-button">
 									<button
-										onClick={function () {
+										onClick={() => {
 											cart = cookies.cart;
 											if (cart === undefined) {
 												cart = [];
@@ -238,10 +210,6 @@ export default function Menu(props) {
 											};
 											cart.push(lasagna);
 											setCookies("cart", cart);
-											setCookies(
-												"cartCount",
-												cart.length
-											);
 										}}
 									>
 										Add
@@ -255,7 +223,7 @@ export default function Menu(props) {
 								<td className="price">$14.99</td>
 								<td className="add-button">
 									<button
-										onClick={function () {
+										onClick={() => {
 											cart = cookies.cart;
 											if (cart === undefined) {
 												cart = [];
@@ -266,10 +234,6 @@ export default function Menu(props) {
 											};
 											cart.push(shells);
 											setCookies("cart", cart);
-											setCookies(
-												"cartCount",
-												cart.length
-											);
 										}}
 									>
 										Add

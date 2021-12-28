@@ -10,9 +10,10 @@ export default function Cart(props) {
 	const navigate = useNavigate();
 	let cart = cookies.cart;
 	let total = 0;
+	let user;
 	function tokenCheck() {
 		let token = cookies.user;
-		props = jwt.decode(token);
+		user = jwt.decode(token);
 	}
 	tokenCheck();
 	if (cart !== undefined) {
@@ -36,7 +37,7 @@ export default function Cart(props) {
 			let data = JSON.stringify({
 				items: cart,
 				total: totWtax,
-				userID: props.id,
+				userID: user.id,
 			});
 			let resources = {
 				method: "POST",
@@ -62,12 +63,16 @@ export default function Cart(props) {
 		<div className="shopping-cart">
 			<h3>My Cart</h3>
 			<span className="error-message">{error}</span>
-			<h4 className="order-name">{`Order for ${props.firstName} ${props.lastName}`}</h4>
+			<h4 className="order-name">{`Order for ${user.firstName} ${user.lastName}`}</h4>
 			<div className="container">
 				<table>
 					<tbody>
-						<p>{cartEmpty}</p>
-						{cart.map(function (item, index) {
+						<tr>
+							<td>
+								<p>{cartEmpty}</p>
+							</td>
+						</tr>
+						{cart.map((item, index) => {
 							return (
 								<tr key={`${index}`}>
 									<td
@@ -86,7 +91,7 @@ export default function Cart(props) {
 										<button
 											key={item.button}
 											className="remove-button"
-											onClick={function () {
+											onClick={() => {
 												let index = cart.indexOf(item);
 												cart.splice(index, 1);
 												setCookies("cart", cart);
