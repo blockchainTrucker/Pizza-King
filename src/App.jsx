@@ -14,21 +14,17 @@ import { useCookies } from "react-cookie";
 const jwt = require("jsonwebtoken");
 
 export default function App(props) {
-	const [cookies, setCookies] = useCookies();
+	const [cookies] = useCookies();
 	let token = cookies.user;
 	let loggedIn = false;
-	let user = {
-		id: "",
-	};
+	let user = {};
 	if (token !== undefined) {
 		user = jwt.decode(token);
-		if (user.id !== null) {
+		if (user !== null) {
 			loggedIn = true;
 		}
 	}
-	if (cookies.cart === undefined) {
-		setCookies("cart", []);
-	}
+
 	return (
 		<div>
 			<Routes>

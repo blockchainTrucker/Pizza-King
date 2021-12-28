@@ -4,6 +4,11 @@ import { useCookies } from "react-cookie";
 
 export default function Nav(props) {
 	const [cookies] = useCookies();
+	let cartCount = 0;
+
+	if (cookies.cart !== undefined) {
+		cartCount = cookies.cart.length;
+	}
 
 	return (
 		<nav>
@@ -13,7 +18,7 @@ export default function Nav(props) {
 				<Link to="/my-account">My Account</Link>
 				<Link to="/my-cart" className="cartCount">
 					<img className="cart" src={cart} alt="Shopping Cart"></img>
-					{cookies.cart.length || "0"}
+					{cartCount}
 				</Link>
 			</div>
 		</nav>
