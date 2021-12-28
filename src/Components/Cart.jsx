@@ -10,12 +10,9 @@ export default function Cart(props) {
 	const navigate = useNavigate();
 	let cart = cookies.cart;
 	let total = 0;
-	let user;
-	function tokenCheck() {
-		let token = cookies.user;
-		user = jwt.decode(token);
-	}
-	tokenCheck();
+	let token = cookies.user;
+	let user = jwt.decode(token);
+
 	if (cart !== undefined) {
 		for (let i = 0; i < cart.length; i++) {
 			total = total + cart[i].price;

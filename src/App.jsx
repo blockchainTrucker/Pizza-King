@@ -22,7 +22,7 @@ export default function App(props) {
 	};
 	if (token !== undefined) {
 		user = jwt.decode(token);
-		if (user !== undefined) {
+		if (user.id !== null) {
 			loggedIn = true;
 		}
 	}
