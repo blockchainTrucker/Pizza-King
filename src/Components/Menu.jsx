@@ -4,10 +4,11 @@ import { useEffect } from "react";
 
 export default function Menu(props) {
 	const [cookies, setCookies] = useCookies();
+	let cart = [];
+
 	useEffect(() => {
 		document.title = "Pizza King - Menu";
 	}, []);
-	let cart = [];
 
 	return (
 		<div className="container">

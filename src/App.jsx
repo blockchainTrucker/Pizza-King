@@ -36,11 +36,7 @@ export default function App(props) {
 				<Route
 					path="my-account"
 					element={
-						<PrivateRoute
-							isAuth={loggedIn}
-							path="/my-account"
-							redirectTo="/login"
-						>
+						<PrivateRoute isAuth={loggedIn} redirectTo="/login">
 							<MyAccount />
 						</PrivateRoute>
 					}
@@ -48,11 +44,7 @@ export default function App(props) {
 				<Route
 					path="my-cart"
 					element={
-						<PrivateRoute
-							isAuth={loggedIn}
-							path="/my-cart"
-							redirectTo="/login"
-						>
+						<PrivateRoute isAuth={loggedIn} redirectTo="/login">
 							<MyCart />
 						</PrivateRoute>
 					}

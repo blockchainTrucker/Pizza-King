@@ -5,14 +5,15 @@ import { useState } from "react";
 import { useCookies } from "react-cookie";
 
 export default function Login(props) {
-	useEffect(() => {
-		document.title = "Pizza King - Login";
-	}, []);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [, setCookies] = useCookies();
 	const [error, setError] = useState();
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		document.title = "Pizza King - Login";
+	}, []);
 
 	function loginUser(email, password) {
 		const url = "http://localhost:9999/api/users/login";

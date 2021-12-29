@@ -5,6 +5,7 @@ export default function Error(props) {
 	useEffect(() => {
 		document.title = "Pizza King - Error";
 	}, []);
+
 	return (
 		<div className="container">
 			<div className="error">

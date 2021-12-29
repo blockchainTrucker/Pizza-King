@@ -10,8 +10,7 @@ export default function Cart(props) {
 	const navigate = useNavigate();
 	let cart = cookies.cart;
 	let total = 0;
-	let token = cookies.user;
-	let user = jwt.decode(token);
+	let user = jwt.decode(cookies.user);
 
 	if (cart !== undefined) {
 		for (let i = 0; i < cart.length; i++) {
@@ -44,7 +43,7 @@ export default function Cart(props) {
 				body: data,
 			};
 			fetch(url, resources).then((res) => {
-				if (res.body === "Error") {
+				if (res === "error") {
 					setError("Something went wrong, please try again");
 				} else {
 					setCookies("cart", []);
@@ -72,21 +71,15 @@ export default function Cart(props) {
 						{cart.map((item, index) => {
 							return (
 								<tr key={`${index}`}>
-									<td
-										key={`${item.name}${index}`}
-										className="item"
-									>
+									<td key={`${index}name`} className="item">
 										{item.name}
 									</td>
-									<td
-										key={`${item.price}${index}`}
-										className="price"
-									>
+									<td key={`${index}price`} className="price">
 										{`$${item.price}`}
 									</td>
 									<td>
 										<button
-											key={item.button}
+											key={`${index}button`}
 											className="remove-button"
 											onClick={() => {
 												let index = cart.indexOf(item);
@@ -105,7 +98,7 @@ export default function Cart(props) {
 								<h4>Total with tax:</h4>
 							</td>
 							<td className="item-total">
-								<h4>${(total * 1.053).toFixed(2) || 0.0}</h4>
+								<h4>${(total * 1.053).toFixed(2)}</h4>
 							</td>
 						</tr>
 					</tbody>

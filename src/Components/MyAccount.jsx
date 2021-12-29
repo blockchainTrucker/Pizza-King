@@ -7,6 +7,7 @@ import PastOrders from "./PastOrders";
 export default function MyAccount(props) {
 	const navigate = useNavigate();
 	const [, , removeCookies] = useCookies();
+
 	useEffect(() => {
 		document.title = "Pizza King - My Account";
 	}, []);

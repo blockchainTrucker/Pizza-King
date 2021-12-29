@@ -5,9 +5,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 export default function Registration(props) {
-	useEffect(() => {
-		document.title = "Pizza King - Registration";
-	}, []);
 	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [firstName, setFirstName] = useState("");
@@ -15,6 +12,10 @@ export default function Registration(props) {
 	const [password, setPassword] = useState("");
 	const [repPassword, setRepPassword] = useState("");
 	const [error, setError] = useState();
+
+	useEffect(() => {
+		document.title = "Pizza King - Registration";
+	}, []);
 
 	function registerUser(firstName, lastName, email, password) {
 		const url = "http://localhost:9999/api/users/register";
@@ -39,6 +40,7 @@ export default function Registration(props) {
 		let passRegex = new RegExp(/[\S+]{6,24}/);
 		let nameRegex = new RegExp(/[a-zA-Z]{2,24}/);
 		let emailRegex = new RegExp(/[a-z0-9]+[a-z0-9]*@[a-z0-9]*.\w\w\w/i);
+
 		if (!nameRegex.test(firstName)) {
 			setError("Enter First Name");
 			return;
@@ -65,6 +67,7 @@ export default function Registration(props) {
 			}
 		});
 	}
+
 	return (
 		<div className="container">
 			<form className="regForm" onSubmit={submitHandler}>

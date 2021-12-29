@@ -6,6 +6,7 @@ export default function OrderPlaced(props) {
 	useEffect(() => {
 		document.title = "Pizza King - Order Placed";
 	}, []);
+
 	return (
 		<div className="container">
 			<div className="order-placed">

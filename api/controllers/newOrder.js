@@ -12,7 +12,7 @@ module.exports = function newOrder(req, res, next) {
 		})
 		.catch((err) => {
 			res.status(400);
-			res.send("Error");
+			res.send("error");
 			console.log(err);
 		});
 };

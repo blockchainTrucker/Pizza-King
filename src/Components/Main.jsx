@@ -6,6 +6,7 @@ export default function Main(props) {
 	useEffect(() => {
 		document.title = "Pizza King - Home";
 	}, []);
+
 	return (
 		<div className="container">
 			<div className="logo-pizza">
