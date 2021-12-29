@@ -98,12 +98,11 @@ div.container {
 
 .phoneNumber {
 	color: rgba(255, 255, 255);
-	width: 100%;
 	font-size: 2.5em;
 	margin: 25px;
 }
 
-.map-hours {
+.info {
 	margin-left: auto;
 	margin-right: auto;
 	width: 75%;
