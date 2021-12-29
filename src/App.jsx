@@ -1,6 +1,5 @@
 import "./static/css/App.css";
-import { Route } from "react-router-dom";
-import { Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import Menu from "./Components/Menu";
@@ -18,6 +17,7 @@ export default function App(props) {
 	let token = cookies.user;
 	let loggedIn = false;
 	let user = {};
+
 	if (token !== undefined) {
 		user = jwt.decode(token);
 		if (user !== null) {
