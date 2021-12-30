@@ -19,6 +19,7 @@ export default function Cart(props) {
 	} else {
 		cart = [];
 	}
+
 	useEffect(() => {
 		if (cart.length === 0) {
 			setCartEmpty("Cart is empty...");
