@@ -4,7 +4,7 @@ export default function Footer(props) {
 			<footer>
 				{"Made by "}
 				<a href="https://github.com/jwachtel96">Jesse Wachtel</a>
-				{" using React."}
+				{" using MongoDB, Express, React, and NodeJS."}
 			</footer>
 		</div>
 	);
