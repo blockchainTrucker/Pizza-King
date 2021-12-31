@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
+import Alert from "./Alert";
+const jwt = require("jsonwebtoken");
 
 export default function Login(props) {
 	const [email, setEmail] = useState("");
@@ -38,12 +40,19 @@ export default function Login(props) {
 			} else {
 				setCookies("user", res);
 				navigate("/my-account");
+				let token = res;
+				let user = jwt.decode(token);
+				document.getElementById("alert").style.display = "block";
+				document.getElementById(
+					"alertMessage"
+				).innerText = `Welcome back, ${user.firstName}!`;
 			}
 		});
 	}
 
 	return (
 		<div className="container">
+			<Alert />
 			<form className="loginForm" onSubmit={submitHandler}>
 				<h3>Sign in</h3>
 				<p className="error-message">{error}</p>

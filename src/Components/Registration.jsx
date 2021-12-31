@@ -64,6 +64,10 @@ export default function Registration(props) {
 				return;
 			} else if (res === "success") {
 				navigate("/login");
+				document.getElementById("alert").style.display = "block";
+				document.getElementById(
+					"alertMessage"
+				).innerText = `You have successfully registered, please sign in.`;
 			}
 		});
 	}
