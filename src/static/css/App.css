@@ -69,12 +69,12 @@ div.container {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	margin: 10px auto;
 	position: relative;
 	text-align: center;
 }
 
 .logo-pizza {
+	width: 100%;
 	margin-top: 25px;
 }
 
@@ -103,7 +103,7 @@ div.container {
 
 .phoneNumber {
 	color: rgba(255, 255, 255);
-	font-size: 2.5em;
+	font-size: 2em;
 	margin: 25px;
 }
 
@@ -144,6 +144,10 @@ div.container {
 
 .address {
 	margin-bottom: 20px;
+}
+
+.locationMap {
+	max-width: 1000px;
 }
 
 .menu {
